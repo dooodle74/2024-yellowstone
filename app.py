@@ -12,8 +12,26 @@ app = Flask(__name__)
 CONFIG_EMAIL = ''
 CONFIG_PASSWORD = ''
 SENDER_EMAIL = ''
-SENDER_NAME = ''
+SENDER_NAME = 'Yellowstone Lodge Notifications'
 RECEPIENTS = []
+
+# Local Env
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+CONFIG_EMAIL = os.getenv('CONFIG_EMAIL')
+CONFIG_PASSWORD = os.getenv('CONFIG_PASSWORD')
+SENDER_EMAIL = os.getenv('CONFIG_EMAIL')
+i = 0
+while True:
+    index = f'VAR{i}'
+    recepient = os.getenv(index)
+    if recepient is None:
+        break
+    RECEPIENTS.append(recepient)
+    i += 1
+
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587

@@ -4,55 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="60"> <!-- Refresh every 60 seconds -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check JSON Values</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>Yellostone Lodging Availability Tracker</title>
 </head>
-<body>
-    <h1>Check JSON Values</h1>
+<body style="width: 100%; max-width: 1200px; margin: 0 auto;">
+    <h1>Yellostone Lodging Availability Tracker</h1>
     <p>Last Updated: {{ last_updated_time }}</p>
     <form action="/update" method="post">
         <button type="submit">Update Data</button>
     </form>
-    <br />
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Roosevelt</th>
-                <th>OF Snow Lodge</th>
-                <th>Old Faithful</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in range(dates|length) %}
-                <tr>
-                    <td>{{ dates[i] }}</td>
-                    <td>{{ results_YLRL[i] }}</td>
-                    <td>{{ results_YLOS[i] }}</td>
-                    <td>{{ results_YLOL[i] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 
     <script>
-        // Reload the page every 60 seconds (or any interval you specify)
+        // Reload the page every 60 seconds 
         setInterval(function() {
             location.reload();
-        }, 60000); // 60000 milliseconds = 60 seconds
+        }, 60000); 
     </script>
 </body>
 </html>
